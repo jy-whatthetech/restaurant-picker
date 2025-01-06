@@ -1,5 +1,5 @@
 import React from "react";
-import { Graph as D3Graph } from "react-d3-graph";
+import { Graph as D3Graph, GraphConfiguration } from "react-d3-graph";
 import { getTypeConfig } from "../parser/inputTypes";
 import * as Utils from "../utils/utils";
 import * as LayoutUtils from "../layout/layoutUtils";
@@ -150,7 +150,7 @@ const Graph = ({
     );
   }
 
-  const myConfig = {
+  const myConfig: GraphConfiguration<any, any> = {
     nodeHighlightBehavior: true,
     staticGraphWithDragAndDrop: selectedLayout !== LayoutType.ForceLayout,
     width: graphPaneWidth,
@@ -176,7 +176,18 @@ const Graph = ({
       linkStrength: 0.5,
       disableLinkForce: false
     },
-    focusZoom: 1
+    focusZoom: 1,
+    automaticRearrangeAfterDropNode: false,
+    collapsible: false,
+    focusAnimationDuration: 0,
+    linkHighlightBehavior: false,
+    highlightDegree: 0,
+    highlightOpacity: 0,
+    maxZoom: 0,
+    minZoom: 0,
+    initialZoom: null,
+    panAndZoom: false,
+    staticGraph: false
   };
 
   const argNodes = [];

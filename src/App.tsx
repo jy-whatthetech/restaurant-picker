@@ -101,7 +101,7 @@ function App() {
         return;
       }
     } catch (ex) {
-      setGraphInputError(ex.message);
+      setGraphInputError((ex as any)?.message);
       return;
     }
 
@@ -138,7 +138,7 @@ function App() {
     try {
       parsedValue = ParseUtils.parseNodes(customNodes);
     } catch (ex) {
-      setCustomNodesInputError(ex.message);
+      setCustomNodesInputError((ex as any)?.message);
       return;
     }
     setCustomNodesInputError("");

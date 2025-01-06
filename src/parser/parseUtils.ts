@@ -239,7 +239,7 @@ export function parseGraphJSON(config: { input: string }) {
   try {
     jsonObj = parseJson(input); // parseJson library will automatically handle and throw error in syntax
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error((error as any)?.message);
   }
   if (!jsonObj.nodes) {
     throw new Error("JSON object is missing the `nodes` property");
@@ -269,7 +269,7 @@ export function parseBinaryTreeJSON(config: { input: string }) {
   try {
     jsonObj = parseJson(input); // parseJson library will automatically handle and throw error in syntax
   } catch (error) {
-    throw new Error(error.message);
+    throw new Error((error as any)?.message);
   }
 
   if (!jsonObj.nodes) {
