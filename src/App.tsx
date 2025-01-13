@@ -42,8 +42,15 @@ const restaurants = [
   }
 ];
 
+// Get unique cuisines for filter dropdown
+const cuisines = ['All', ...new Set(restaurants.map(r => r.cuisine))];
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedCuisine, setSelectedCuisine] = useState('All');
+
+  const filteredRestaurants = selectedCuisine === 'All'
+    ? restaurants
+    : restaurants.filter(r => r.cuisine === selectedCuisine);
 
   return (
     <>
@@ -65,7 +72,18 @@ function App() {
         </p>
       </div>
 
-      <div>{restaurants.map((restaurant) => (
+      <select
+        value={selectedCuisine}
+        onChange={(e) => setSelectedCuisine(e.target.value)}
+      >
+        {cuisines.map(cuisine => (
+          <option key={cuisine} value={cuisine}>
+            {cuisine}
+          </option>
+        ))}
+      </select>
+
+      <div>{filteredRestaurants.map((restaurant) => (
         <div className="card">{restaurant.name}</div>
       ))}</div>
     </>
