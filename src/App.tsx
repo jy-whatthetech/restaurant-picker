@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import GoogleAuth from './GoogleAuth';
 
 const restaurants = [
   {
@@ -71,6 +72,8 @@ function App() {
           Click on the Vite and React logos to learn more
         </p>
       </div>
+
+      <GoogleAuth/>
 
       <select
         value={selectedCuisine}
