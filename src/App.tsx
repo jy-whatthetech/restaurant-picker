@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import GoogleAuth from './GoogleAuth';
+import Button from '@mui/material/Button'
 
 const restaurants = [
   {
@@ -52,6 +53,10 @@ function App() {
   const filteredRestaurants = selectedCuisine === 'All'
     ? restaurants
     : restaurants.filter(r => r.cuisine === selectedCuisine);
+
+  const handleClick = () => {
+    console.log('Button clicked!');
+  }
 
   return (
     <>
