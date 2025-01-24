@@ -78,6 +78,10 @@ function App() {
         </p>
       </div>
 
+      <Button variant="contained" color="primary">
+        Primary Button
+      </Button>
+
       <GoogleAuth/>
 
       <select
